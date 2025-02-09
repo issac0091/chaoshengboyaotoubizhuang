@@ -2,9 +2,6 @@ let D3 = 0
 let D2 = 0
 let D1 = 0
 serial.redirectToUSB()
-I2C_LCD1602.BacklightOn()
-I2C_LCD1602.on()
-I2C_LCD1602.LcdInit(39)
 let speed = 300
 cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 70)
 cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, 0)
@@ -67,7 +64,4 @@ basic.forever(function () {
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
     }
     basic.pause(500)
-})
-basic.forever(function () {
-    I2C_LCD1602.ShowNumber(cbit_小车类.Ultrasonic_Car(), 0, 0)
 })
