@@ -2,6 +2,9 @@ let D3 = 0
 let D2 = 0
 let D1 = 0
 serial.redirectToUSB()
+I2C_LCD1602.BacklightOn()
+I2C_LCD1602.on()
+I2C_LCD1602.LcdInit(39)
 let speed = 300
 cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 70)
 cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, 0)
@@ -42,26 +45,29 @@ basic.forever(function () {
     basic.pause(600)
     if (D1 < 20 && D3 - D1 > 0) {
         speed = speed - 50
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
+        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
         speed = 300
     } else if (D3 < 20 && D1 - D3 > 0) {
         speed = speed - 50
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, speed)
+        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
         speed = 300
     } else if (D2 < 15) {
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Back, speed)
+        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
         basic.pause(500)
         if (D3 - D1 > 0) {
             speed = speed - 50
-            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, speed)
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
             speed = 300
         } else {
             speed = speed - 50
-            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
             speed = 300
         }
     } else {
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
     }
     basic.pause(500)
+})
+basic.forever(function () {
+    I2C_LCD1602.ShowNumber(cbit_小车类.Ultrasonic_Car(), 0, 0)
 })
