@@ -53,11 +53,11 @@ basic.forever(function () {
         basic.pause(500)
         if (D3 - D1 > 0) {
             speed = speed - 50
-            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, speed)
             speed = 300
         } else {
             speed = speed - 50
-            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, speed)
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
             speed = 300
         }
     } else {
