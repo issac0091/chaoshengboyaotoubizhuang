@@ -24,25 +24,25 @@ basic.forever(function () {
     cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Stop, 0)
     basic.pause(100)
     cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 70)
-    basic.pause(100)
+    basic.pause(200)
     D1 = Math.floor(cbit_小车类.Ultrasonic_Car())
     while (D1 == 0) {
         D1 = Math.floor(cbit_小车类.Ultrasonic_Car())
     }
-    cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 130)
-    basic.pause(100)
+    cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 135)
+    basic.pause(200)
     D2 = Math.floor(cbit_小车类.Ultrasonic_Car())
     while (D2 == 0) {
         D2 = Math.floor(cbit_小车类.Ultrasonic_Car())
     }
-    cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 30)
-    basic.pause(100)
+    cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 25)
+    basic.pause(200)
     D3 = Math.floor(cbit_小车类.Ultrasonic_Car())
     while (D3 == 0) {
         D3 = Math.floor(cbit_小车类.Ultrasonic_Car())
     }
     cbit_小车类.Servo_Car(cbit_小车类.enServo.S1, 70)
-    basic.pause(100)
+    basic.pause(200)
     if (D1 < 20 && D3 - D1 > 0) {
         speed = speed - 50
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
@@ -53,7 +53,7 @@ basic.forever(function () {
         speed = 300
     } else if (D2 < 15) {
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Back, speed)
-        basic.pause(150)
+        basic.pause(200)
         if (D3 - D1 > 0) {
             speed = speed - 50
             cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
