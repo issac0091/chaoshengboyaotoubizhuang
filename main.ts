@@ -43,22 +43,22 @@ basic.forever(function () {
     if (D1 < 20 && D3 - D1 > 0) {
         speed = speed - 50
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
-        speed = 200
+        speed = 300
     } else if (D3 < 20 && D1 - D3 > 0) {
         speed = speed - 50
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, speed)
-        speed = 200
+        speed = 300
     } else if (D2 < 15) {
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Back, speed)
         basic.pause(500)
         if (D3 - D1 > 0) {
             speed = speed - 50
             cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, speed)
-            speed = 200
+            speed = 300
         } else {
             speed = speed - 50
             cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, speed)
-            speed = 200
+            speed = 300
         }
     } else {
         cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, speed)
